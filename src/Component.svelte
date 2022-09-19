@@ -9,6 +9,8 @@ export const registerPlugin = FilePond.registerPlugin;
 // is FilePond supported
 export const isSupported = FilePond.supported();
 
+export const setOptions = FilePond.setOptions;
+
 // private props, root element + active instance of FilePond
 let root;
 let instance;
@@ -83,7 +85,7 @@ onDestroy(() => {
 </script>
 
 <div class="filepond--wrapper">
-    <input type="file" 
+    <input type="file"
         bind:this={root}
         {id}
         {name}

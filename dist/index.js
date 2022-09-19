@@ -9969,7 +9969,7 @@
     let find = fn;
     exports.registerPlugin = fn;
     let getOptions$1 = fn;
-    let setOptions$1 = fn;
+    exports.setOptions = fn;
 
     // if not supported, no API
     if (supported()) {
@@ -9995,7 +9995,7 @@
               parse,
               find,
               registerPlugin: exports.registerPlugin,
-              setOptions: setOptions$1
+              setOptions: exports.setOptions
             }
           })
         );
@@ -10085,7 +10085,7 @@
         return opts;
       };
 
-      setOptions$1 = opts => {
+      exports.setOptions = opts => {
         if (isObject(opts)) {
           // update existing plugins
           state.apps.forEach(app => {
@@ -10124,7 +10124,7 @@
     		m(target, anchor) {
     			insert(target, div, anchor);
     			append(div, input);
-    			/*input_binding*/ ctx[24](input);
+    			/*input_binding*/ ctx[25](input);
     		},
     		p(ctx, [dirty]) {
     			if (dirty & /*id*/ 2) {
@@ -10159,7 +10159,7 @@
     		o: noop,
     		d(detaching) {
     			if (detaching) detach(div);
-    			/*input_binding*/ ctx[24](null);
+    			/*input_binding*/ ctx[25](null);
     		}
     	};
     }
@@ -10167,6 +10167,7 @@
     function instance_1($$self, $$props, $$invalidate) {
     	const registerPlugin = exports.registerPlugin;
     	const isSupported = supported();
+    	const setOptions = exports.setOptions;
 
     	// private props, root element + active instance of FilePond
     	let root;
@@ -10249,7 +10250,7 @@
     	}
 
     	$$self.$$set = $$new_props => {
-    		$$invalidate(27, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+    		$$invalidate(28, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
     		if ("class" in $$new_props) $$invalidate(0, klass = $$new_props.class);
     		if ("id" in $$new_props) $$invalidate(1, id = $$new_props.id);
     		if ("name" in $$new_props) $$invalidate(2, name = $$new_props.name);
@@ -10300,6 +10301,7 @@
     		sort,
     		registerPlugin,
     		isSupported,
+    		setOptions,
     		input_binding
     	];
     }
@@ -10311,6 +10313,7 @@
     		init(this, options, instance_1, create_fragment, safe_not_equal, {
     			registerPlugin: 22,
     			isSupported: 23,
+    			setOptions: 24,
     			class: 0,
     			id: 1,
     			name: 2,
@@ -10341,6 +10344,10 @@
 
     	get isSupported() {
     		return this.$$.ctx[23];
+    	}
+
+    	get setOptions() {
+    		return this.$$.ctx[24];
     	}
 
     	get class() {

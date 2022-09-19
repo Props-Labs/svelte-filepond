@@ -10118,7 +10118,7 @@ function create_fragment(ctx) {
 		m(target, anchor) {
 			insert(target, div, anchor);
 			append(div, input);
-			/*input_binding*/ ctx[24](input);
+			/*input_binding*/ ctx[25](input);
 		},
 		p(ctx, [dirty]) {
 			if (dirty & /*id*/ 2) {
@@ -10153,7 +10153,7 @@ function create_fragment(ctx) {
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(div);
-			/*input_binding*/ ctx[24](null);
+			/*input_binding*/ ctx[25](null);
 		}
 	};
 }
@@ -10161,6 +10161,7 @@ function create_fragment(ctx) {
 function instance_1($$self, $$props, $$invalidate) {
 	const registerPlugin$1 = registerPlugin;
 	const isSupported = supported();
+	const setOptions = setOptions$1;
 
 	// private props, root element + active instance of FilePond
 	let root;
@@ -10243,7 +10244,7 @@ function instance_1($$self, $$props, $$invalidate) {
 	}
 
 	$$self.$$set = $$new_props => {
-		$$invalidate(27, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+		$$invalidate(28, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
 		if ("class" in $$new_props) $$invalidate(0, klass = $$new_props.class);
 		if ("id" in $$new_props) $$invalidate(1, id = $$new_props.id);
 		if ("name" in $$new_props) $$invalidate(2, name = $$new_props.name);
@@ -10294,6 +10295,7 @@ function instance_1($$self, $$props, $$invalidate) {
 		sort,
 		registerPlugin$1,
 		isSupported,
+		setOptions,
 		input_binding
 	];
 }
@@ -10305,6 +10307,7 @@ class Component extends SvelteComponent {
 		init(this, options, instance_1, create_fragment, safe_not_equal, {
 			registerPlugin: 22,
 			isSupported: 23,
+			setOptions: 24,
 			class: 0,
 			id: 1,
 			name: 2,
@@ -10335,6 +10338,10 @@ class Component extends SvelteComponent {
 
 	get isSupported() {
 		return this.$$.ctx[23];
+	}
+
+	get setOptions() {
+		return this.$$.ctx[24];
 	}
 
 	get class() {
@@ -10528,4 +10535,4 @@ class Component extends SvelteComponent {
 }
 
 export default Component;
-export { registerPlugin, supported };
+export { registerPlugin, setOptions$1 as setOptions, supported };
